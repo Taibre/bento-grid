@@ -1,0 +1,272 @@
+CSS
+/* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box; /* Ensures padding doesn't affect width calculations */
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color Palette matching the picture */
+  --bg-color: #f3f3f3;
+  --purple-dark: #7651dc;
+  --purple-light: #dacffc;
+  --yellow-main: #ffca58;
+  --yellow-light: #fef1d2;
+  --white: #ffffff;
+  --dark-text: #121212;
+  --gray-sub: #616161;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--dark-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+    margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+img{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.image-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ==========================================================================
+   2. FLEXBOX LAYOUT ARCHITECTURE
+   ========================================================================== */
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  padding: 0%;
+  margin: 3rem;
+  min-height: 800px;
+  max-width: 1200px;
+  width: 100%;
+  grid-template-areas:
+    "card1 card3 card3 card8"
+    "card1 card4 card5 card8"
+    "card2 card6 card7 card7";
+}
+
+/* Map cards to named areas */
+.card-create   { grid-area: card1; }
+.card-write    { grid-area: card2; }
+.card-hero     { grid-area: card3; }
+.card-accounts { grid-area: card4; }
+.card-schedule { grid-area: card5; }
+.card-stats    { grid-area: card6; }
+.card-grow     { grid-area: card7; }
+.card-vertical { grid-area: card8; }
+/* ==========================================================================
+   3. INDIVIDUAL CARD DESIGNS
+   ========================================================================== */
+.card {
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+
+}
+
+.card h1, .card h2 {
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* Card 1: Create Content */
+.card-create {
+  background-color: var(--yellow-light);
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.card-create h2 {
+  font-size: 2rem;
+}
+
+.card-create h2 .purple-text {
+  color: var(--purple-dark);
+}
+
+/* Card 2: Write AI */
+.card-write {
+  background-color: var(--yellow-main);  
+gap: 1.25rem;
+}
+
+.card-write h2 {
+  font-size: 2rem;
+}
+
+/* Card 3: Hero */
+.card-hero {
+  background-color: var(--purple-dark);
+  color: var(--white);
+  text-align: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card-hero h1 {
+  font-size: 2.75rem;
+}
+
+.card-hero em {
+  font-style: italic;
+}
+
+.yellow-text {
+  color: var(--yellow-main);
+}
+
+.card-hero .rating {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.star-rating-img {
+  max-width: 120px;
+}
+
+.card-hero p {
+  font-size: 0.85rem;
+}
+
+/* Card 4: Accounts */
+.card-accounts {
+  background-color: var(--white);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-accounts h2 {
+  font-size: 1.5rem;
+}
+
+/* Card 5: Schedule */
+.card-schedule {
+  background-color: var(--yellow-light);
+  overflow: hidden;
+  margin-top: 0; 
+   justify-content: center;
+}
+
+.card-schedule h2 {
+  font-size: 1.5rem;
+}
+
+/* Card 6: Stats */
+.card-stats {
+  background-color: var(--white);
+  justify-content: space-between;
+}
+
+.big-stat {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.p{
+color: black;
+  margin-top: 0rem;
+  font-size: 5rem;
+}
+
+.card-stats p {
+  color: black;
+  margin-top: 0rem;
+  font-size: 2rem;
+}
+
+.avatars {
+  margin-top: 0rem;
+  justify-content: flex-start;
+}
+
+.avatars img {
+  max-width: 100px;
+}
+
+/* Card 7: Grow Followers */
+.card-grow {
+  background-color: var(--purple-dark);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+}
+
+.card-grow .chart-img {
+  margin-top: 0;
+  flex: 1;
+}
+
+.card-grow h2 {
+  font-size: 1.5rem;
+  flex: 1;
+  color: var(--white);
+}
+
+/* Card 8: Vertical Schedule */
+.card-vertical {
+  background-color: var(--purple-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-vertical h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0rem;
+}
+
+.card-vertical .description {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  margin-top: 0rem;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN (Mobile View)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .bento-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+  }
+
+  .card-grow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
